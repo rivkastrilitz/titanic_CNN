@@ -1,17 +1,20 @@
 import pandas as pd
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Dropout, Convolution2D, MaxPooling2D, Flatten
+from sklearn.preprocessing import StandardScaler
+
 titanic = pd.read_csv("titanic.csv")
 
 ###TODO drop what needed
 X = titanic.drop(['Survived'], axis=1)
 Y = titanic.Survived
 
-from sklearn.preprocessing import StandardScaler
+
 ss = StandardScaler()
 X = ss.fit_transform(X)
 y_train_onehot = pd.get_dummies(Y).values
 
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout, Convolution2D, MaxPooling2D, Flatten
+
 from keras import optimizers
 img_rows, img_cols = 2,2
 nb_filters = 1000
