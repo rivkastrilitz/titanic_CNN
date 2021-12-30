@@ -49,6 +49,7 @@ feature_sets_ints = []
 feature_sets_ints_test = []
 print(feature_sets[0])
 for each in feature_sets:
+    print(each)
     feature_sets_ints.append([vocab_to_int[word] for word in each.split()])
 
 print(feature_sets_test[0])
